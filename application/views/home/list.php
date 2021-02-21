@@ -7,5 +7,5 @@ include('slider.php');
 // load data produk
 include('produk.php');
 // load data berita
-include('berita.php');
+include('promosi.php');
  ?>

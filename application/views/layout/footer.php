@@ -1,3 +1,5 @@
+
+
 <?php 
 // Load data konfigurasi website
 $site				= $this->konfigurasi_model->listing();
@@ -90,6 +92,9 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 	</div>
 </footer>
 
+<script>
+  initSample();
+</script>
 
 
 <!-- Back to top -->

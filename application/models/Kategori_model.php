@@ -69,7 +69,12 @@ class Kategori_model extends CI_Model {
 	{
 		$this->db->where('id_kategori', $data['id_kategori']);
 		$this->db->delete('kategori', $data);
-	} 
+	}
+
+	public function count_all_kategori()
+    {
+        return $this->db->get('kategori')->num_rows();
+    } 
 
 }
 

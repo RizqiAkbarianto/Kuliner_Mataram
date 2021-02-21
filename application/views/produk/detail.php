@@ -129,7 +129,7 @@
 	<div class="container">
 		<div class="sec-title p-b-60">
 			<h3 class="m-text5 t-center">
-				Related Products
+				Produk Lainnya
 			</h3>
 		</div>
 
@@ -140,57 +140,113 @@
 				<?php foreach ($produk_related as $produk_related) {
 	# code...
 					?>
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- form untuk memproses belajaan -->
-					<?php 
-					echo form_open(base_url('belanja/add')); 
+					<div class="item-slick2 p-l-15 p-r-15">
+						<!-- form untuk memproses belajaan -->
+						<?php 
+						echo form_open(base_url('belanja/add')); 
 						// elemen yang dibawa
-					echo form_hidden('id', $produk_related->id_produk);
-					echo form_hidden('qty',1 );
-					echo form_hidden('price', $produk_related->harga);
-					echo form_hidden('name', $produk_related->nama_produk);
+						echo form_hidden('id', $produk_related->id_produk);
+						echo form_hidden('qty',1 );
+						echo form_hidden('price', $produk_related->harga);
+						echo form_hidden('name', $produk_related->nama_produk);
 						// elemen redirect unntuk kembali kehalaman yang tadi di akses
-					echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
-					?>
+						echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
+						?>
 
 
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-							<img src="<?php echo base_url('assets/upload/image/'.$produk_related->gambar) ?>" alt="<?php echo $produk_related->nama_produk ?>">
+						<!-- Block2 -->
+						<div class="block2">
+							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+								<img src="<?php echo base_url('assets/upload/image/'.$produk_related->gambar) ?>" alt="<?php echo $produk_related->nama_produk ?>">
 
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
+								<div class="block2-overlay trans-0-4">
+									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+									</a>
 
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button belanja-->
-									<button type="submit" value="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
+									<div class="block2-btn-addcart w-size1 trans-0-4">
+										<!-- Button belanja-->
+										<button type="submit" value="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+											Add to Cart
+										</button>
+									</div>
 								</div>
 							</div>
+
+							<div class="block2-txt p-t-20">
+								<a href="<?php echo base_url('produk/detail/'.$produk_related->slug_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
+									<?php echo $produk_related->nama_produk ?>
+
+								</a>
+
+								<span class="block2-price m-text6 p-r-5">
+									IDR <?php echo number_format($produk_related->harga,'0',',','.') ?>
+								</span>
+							</div>
 						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="<?php echo base_url('produk/detail/'.$produk_related->slug_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
-								<?php echo $produk_related->nama_produk ?>
-
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								IDR <?php echo number_format($produk_related->harga,'0',',','.') ?>
-							</span>
-						</div>
+						<!-- closing form -->
+						<?= form_close(); ?>
 					</div>
-					<!-- closing form -->
-					<?= form_close(); ?>
-				</div>
-			<?php } ?>
+				<?php } ?>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<div class="container p-t-35 p-b-80" style="background-color: #F7F6F6">
+	<div class="flex-w flex-sb">
+		<h3 class="product-detail-name m-text16 p-b-13 " >
+			<b>Review :</b>
+		</h3>
+		<br><br>
+		<div class="col-md-12">
+			<?php echo form_open(base_url('review/tambah')); ?>
+
+			<table class="table" >
+				<tbody>
+					
+					<tr class="table-row">
+						<td>
+							<textarea name="review" id="editor" cols="30" rows="5"></textarea>
+							<p class="block2-name dis-block s-text3 p-b-5">*Berkomentarlah dengan baik dan bijak</p><br>
+							<input type="hidden" class="hidden" name="id_produk" value="<?php echo $produk->id_produk ?>">
+							<div class="w-size25">
+								<!-- Button -->
+								<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" type="submit">
+									Send
+								</button>
+							</div>
+							<br>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			
+
+			<?php echo form_close(); ?>
+		</div>
+		<br><br>
+		<h3 class="product-detail-name m-text16 p-b-13 " >
+			<b>Review Pengguna lain :</b>
+		</h3><br><br>
+		<div class="col-md-12">
+			<div class="container bgwhite">
+				<?php $no=1; foreach($review as $review) { ?> 
+					<br>
+					<div class="">
+
+						<td><?php echo $no ?>. <?php echo $review->nama ?></td>
+						<td><?php echo $review->review ?></td>
+					</div>
+					<br>
+					<hr>
+					<?php $no++; } ?>
 				</div>
 			</div>
-
-		</div>
-	</section>
+		</div> 
+	</div>
+	<br><br>

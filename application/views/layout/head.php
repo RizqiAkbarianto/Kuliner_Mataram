@@ -71,7 +71,11 @@ $site = $this->konfigurasi_model->listing();
 			color: black;
 		}
 		
+		
 	</style>
+	<!-- load ckeditor -->
+  <script src="<?php echo base_url() ?>assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+  <script src="<?php echo base_url() ?>assets/ckeditor/samples/js/sample.js" type="text/javascript"></script>
 <!--===============================================================================================-->
 </head>
 <body class="animsition">

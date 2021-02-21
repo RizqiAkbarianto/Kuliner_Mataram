@@ -30,7 +30,7 @@
  									<th>EMAIL</th>
  									<th>USERNAME</th>
  									<th>LEVEL</th>
- 									<th>ACTION</th>
+ 									<th width="5%">ACTION</th>
  								</tr>
  							</thead>
  							<tbody>
@@ -43,14 +43,14 @@
  										<td><?php echo $user->username ?></td>
  										<td><?php echo $user->akses_level ?></td>
  										<td align="center">
- 											<a href="<?php echo base_url('admin/user/edit/' .$user->id_user) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>Edit</a>
+ 											<a href="<?php echo base_url('admin/user/edit/' .$user->id_user) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
 
- 											<a href="<?php echo base_url('admin/user/delete/' .$user->id_user) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin anda ingin menghapus data ini ?')"><i class="fa fa-trash-o"></i>Hapus</a>
+ 											<a href="<?php echo base_url('admin/user/delete/' .$user->id_user) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin anda ingin menghapus data ini ?')"><i class="fa fa-trash"></i></a>
  										</td> 
  										
  									</tr>
 
- 								<?php } ?>
+ 								<?php $no++; } ?>
  							</tbody>
  							
  						</table>

@@ -65,7 +65,8 @@ class User extends CI_Controller {
 								"email"			=>$i->post('email'),
 								"username"		=>$i->post('username'),
 								"password"		=>SHA1($i->post('password')),
-								"akses_level"	=>$i->post('akses_level')
+								"akses_level"	=>$i->post('akses_level'),
+								"tanggal_daftar"=>date('Y-m-d H:i:s')
 				);
 				$this->user_model->tambah($data);
 				$this->session->set_flashdata('sukses', 'Data Telah Ditambahkan');

@@ -30,19 +30,16 @@
 
 						<!-- Block2 -->
 						<div class="block2">
-							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+							<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+								<a href="<?php echo base_url('produk/detail/'.$produk->slug_produk) ?>" class="block3-img dis-block hov-img-zoom">
 								<img src="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>" alt="<?php echo $produk->nama_produk ?>">
 
 								<div class="block2-overlay trans-0-4">
-									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-									</a>
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
 										<!-- Button belanja-->
 										<button type="submit" value="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											Add to Cart
+											Simpan
 										</button>
 									</div>
 								</div>
@@ -50,12 +47,12 @@
 
 							<div class="block2-txt p-t-20">
 								<a href="<?php echo base_url('produk/detail/'.$produk->slug_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
-									<?php echo $produk->nama_produk ?>
+									<b><?php echo $produk->nama_produk ?></b>
 
 								</a>
 
-								<span class="block2-price m-text6 p-r-5">
-									IDR <?php echo number_format($produk->harga,'0',',','.') ?>
+								<span class="block2-txt p-r-5">
+									<?php echo $produk->instagram ?>
 								</span>
 							</div>
 						</div>

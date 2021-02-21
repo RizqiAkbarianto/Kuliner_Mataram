@@ -261,6 +261,30 @@ class Produk_model extends CI_Model {
 		$this->db->delete('gambar', $data);
 	} 
 
+	public function count_all_products()
+    {
+        return $this->db->get('produk')->num_rows();
+    }
+
+    public function listing_review($slug_produk)
+	{
+		$this->db->select('review.*,
+							users.id_user,
+							users.nama,
+							produk.id_produk');
+		$this->db->from('review');
+		$this->db->join('users', 'users.id_user = review.id_user', 'left');
+		$this->db->join('produk', 'produk.id_produk = review.id_produk', 'left');
+		$this->db->where('produk.slug_produk', $slug_produk);
+		$this->db->order_by('id_review', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+    public function review($data)
+	{
+		$this->db->insert('review', $data);
+	}
 
 
 }

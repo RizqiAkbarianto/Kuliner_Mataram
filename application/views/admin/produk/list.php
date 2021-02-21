@@ -45,11 +45,13 @@
  										<td align="center">
 
 
- 											<a href="<?php echo base_url('admin/produk/gambar/' .$produk->id_produk) ?>" class="btn btn-success btn-xs"><i class="fa fa-image"></i> Gambar ( <?php echo $produk->total_gambar ?> )</a>
+ 											
 
- 											<a href="<?php echo base_url('admin/produk/edit/' .$produk->id_produk) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
+ 											<a href="<?php echo base_url('admin/produk/edit/' .$produk->id_produk) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit" ></i></a>
 
  											<?php include('delete.php') ?>
+
+ 											<a href="<?php echo base_url('admin/produk/gambar/' .$produk->id_produk) ?>" class="btn btn-success btn-xs"><i class="fa fa-image"></i> Gambar ( <?php echo $produk->total_gambar ?> )</a>
  										</td> 
 
  									</tr>

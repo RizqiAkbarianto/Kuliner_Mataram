@@ -32,7 +32,7 @@
  							</div>
  						</div>
 
- 						<div class="form-group row row">
+ 						<div class="form-group row ">
  							<label  class="col-sm-2 control-form-label">Kode Produk</label>
 
  							<div class="col-sm-10">
@@ -40,7 +40,7 @@
  							</div>
  						</div>
 
- 						<div class="form-group row row">
+ 						<div class="form-group row ">
  							<label  class="col-sm-2 control-form-label">Kategori Produk</label>
 
  							<div class="col-sm-10">

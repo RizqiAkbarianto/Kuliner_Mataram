@@ -29,20 +29,16 @@
 					<!-- looping data keranjang belanja -->
 					<?php 
 
-					// form update
-					echo form_open(base_url('belanja/update_cart'));
+					
 
 					foreach($keranjang as $keranjang){ 
 						// ambil data produknya
 						$id_produk 	= $keranjang['id'];
 						$produk 	= $this->produk_model->detail($id_produk);
 
-						// hidden input
-						echo form_hidden('cart['.$keranjang['id'].']', $keranjang['id']);
-						echo form_hidden('cart['.$keranjang['id'].']', $keranjang['rowid']);
-						echo form_hidden('cart['.$keranjang['id'].']', $keranjang['name']);
-						echo form_hidden('cart['.$keranjang['id'].']', $keranjang['price']);
-						echo form_hidden('cart['.$keranjang['id'].']', $keranjang['qty']);
+						// form update Keranjang
+						echo form_open(base_url('belanja/update_cart/'. $keranjang['rowid']));
+
 
 						?>
 
@@ -76,9 +72,10 @@
 						</tr>
 
 						<!-- end foreach -->
-					<?php } 
+					<?php  
 					// echo form close
-					echo form_close();
+						echo form_close();
+					}
 					?>
 
 					

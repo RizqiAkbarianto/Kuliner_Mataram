@@ -10,12 +10,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+        <a href="#" class="d-block text-center" >Hai. <?php echo $this->session->userdata('username'); ?></a>
       </div>
     </form>
 
@@ -23,7 +18,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item menu-open">
-            <a href="<?= base_url('login/logout')?>" class="nav-link active">
+            <a href="<?= base_url('login/logout')?>" class="nav-link active ">
               <i class="nav-icon fas fa-sign-out-alt"></i>
                 LOGOUT
             </a>

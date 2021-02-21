@@ -24,6 +24,23 @@ class Belanja extends CI_Controller {
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 
+	// checkout
+	public function checkout()
+	{
+		// cek pelanggan telah login atau belum jika blm maka harus regitrasi dan login
+		// checking by session email
+
+		// kondisi telah login
+		if ($this->session->userdata('email')) {
+			# code...
+		}else{
+			// kalo belum login
+			$this->session->set_flashdata('sukses', 'Silahkan Login atau Registrasi Terlebih Dahulu');
+			redirect(base_url('registrasi'),'refresh');
+		}
+
+	}
+
 	// tambahkan ke keranjang belaja
 	public function add()
 	{
@@ -44,8 +61,25 @@ class Belanja extends CI_Controller {
 		redirect($redirect_page,'refresh');
 	}
 
+	// update cart
+	public function update_cart($rowid)
+	{
+		// jika ada row id
+		if ($rowid) {
+			$data = array(	'rowid' => $rowid,
+							'qty'	=> $this->input->post('qty')
+							 );
+			$this->cart->update($data);
+			$this->session->set_flashdata('sukses', 'Data Keranjang Telah Diupdate');
+			redirect(base_url('belanja'),'refresh');
+		}else{
+			// jika tidak ada row id
+			redirect(base_url('belanja'),'refresh');
+		}
+	}
+
 	// hapus semua isi keranjang
-	public function hapus($rowid)
+	public function hapus($rowid="")
 	{
 		if ($rowid) {
 			// hapus per item

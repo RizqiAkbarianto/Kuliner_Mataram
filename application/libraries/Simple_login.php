@@ -19,13 +19,13 @@ class Simple_login
 		//jika ad data usernya, maka create session login
 		if($check){
 			$id_user  	 	= $check->id_user;
-			$nama      		= $check->nama;
-			$akses_level    = $check->akses_level;
+			// $name      		= $check->nama;
+			$akses_level    = 'Admin';
 			// create session
 			$this->CI->session->set_userdata('id_user',$id_user);
-			$this->CI->session->set_userdata('nama',$nama);
+			// $this->CI->session->set_userdata('nama',$name);
 			$this->CI->session->set_userdata('username',$username);
-			$this->CI->session->set_userdata('akses_level',$akses_level);
+			$this->CI->session->set_userdata('akses_level','Admin');
 			// redirect ke halaman admin yang telah diproteksi
 			redirect(base_url('admin/dasbor'),'refresh');
 		}
@@ -51,14 +51,13 @@ class Simple_login
 	{
 		// membuang semua session yang telah di set pada login
 		$this->CI->session->unset_userdata('id_user');
-		$this->CI->session->unset_userdata('nama');
+		// $this->CI->session->unset_userdata('nama');
 		$this->CI->session->unset_userdata('username');
 		$this->CI->session->unset_userdata('akses_level');
 		// setalh session dibuang, maka redirect ke login
 		$this->CI->session->set_flashdata('sukses', 'Anda berhasil Logout');
 		redirect(base_url('login'),'refresh');
 	}
-
 
 }
 
