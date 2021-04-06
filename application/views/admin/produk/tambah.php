@@ -55,40 +55,6 @@
  						</div>
 
  						<div class="form-group row">
- 							<label  class="col-sm-2 control-form-label">Harga Produk</label>
-
- 							<div class="col-sm-10">
- 								<input type="number" name="harga" class="form-control"  placeholder="Harga Produk" value="<?php echo set_value('harga') ?>" required> 
- 							</div>
- 						</div>
-
- 						<div class="form-group row">
- 							<label  class="col-sm-2 control-form-label">Stok Produk</label>
-
- 							<div class="col-sm-10">
- 								<input type="number" name="stok" class="form-control"  placeholder="Stok Produk" value="<?php echo set_value('stok') ?>" required> 
- 							</div>
- 						</div>
-
-
- 						<div class="form-group row">
- 							<label  class="col-sm-2 control-form-label">Berat Produk</label>
-
- 							<div class="col-sm-10">
- 								<input type="text" name="berat" class="form-control"  placeholder="Berat Produk" value="<?php echo set_value('berat') ?>" required> 
- 							</div>
- 						</div>
-
- 						<div class="form-group row">
- 							<label  class="col-sm-2 control-form-label">Ukuran Produk</label>
-
- 							<div class="col-sm-10">
- 								<input type="text" name="ukuran" class="form-control"  placeholder="Ukuran Produk" value="<?php echo set_value('ukuran') ?>" required> 
- 							</div>
- 						</div>
-
-
- 						<div class="form-group row">
  							<label  class="col-sm-2 control-form-label">Instagram</label>
 
  							<div class="col-sm-10">
@@ -132,7 +98,7 @@
  							<label  class="col-sm-2 control-form-label">Keyword (Untuk SEO Google)</label>
 
  							<div class="col-sm-10">
- 								<textarea name="keywords" class="form-control" placeholder="Keyword (Untuk SEO Google)"><?php echo set_value('keywords') ?></textarea>
+ 								<textarea name="keywords" class="form-control" id="editor" placeholder="Keyword (Untuk SEO Google)"><?php echo set_value('keywords') ?></textarea>
  							</div>
  						</div>
 

@@ -27,7 +27,7 @@ class Review extends CI_Controller {
 
 		$data = array(  
 			"id_produk"		=>$i->post('id_produk'),
-			"id_user"		=>$this->session->userdata('id_user'),
+			"id_user"		=>$this->session->userdata('id'),
 			'nama'			=>$this->session->userdata('nama'),
 			"review" 		=>$i->post('review')
 		);

@@ -19,11 +19,11 @@ class Simple_login
 		//jika ad data usernya, maka create session login
 		if($check){
 			$id_user  	 	= $check->id_user;
-			// $name      		= $check->nama;
+			$nama      		= $check->nama;
 			$akses_level    = 'Admin';
 			// create session
 			$this->CI->session->set_userdata('id_user',$id_user);
-			// $this->CI->session->set_userdata('nama',$name);
+			$this->CI->session->set_userdata('nama',$nama);
 			$this->CI->session->set_userdata('username',$username);
 			$this->CI->session->set_userdata('akses_level','Admin');
 			// redirect ke halaman admin yang telah diproteksi
@@ -51,7 +51,7 @@ class Simple_login
 	{
 		// membuang semua session yang telah di set pada login
 		$this->CI->session->unset_userdata('id_user');
-		// $this->CI->session->unset_userdata('nama');
+		$this->CI->session->unset_userdata('nama');
 		$this->CI->session->unset_userdata('username');
 		$this->CI->session->unset_userdata('akses_level');
 		// setalh session dibuang, maka redirect ke login

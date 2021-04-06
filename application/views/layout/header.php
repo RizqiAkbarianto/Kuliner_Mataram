@@ -4,7 +4,7 @@
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="<?= $site->instagram ?>" class="topbar-social-item fa fa-instagram">  @Kuliner.Mataram</a>
+					<a href="<?= $site->instagram ?>" class="topbar-social-item fa fa-instagram"><a href="<?= $site->instagram ?>" class="s-text7" style="color: #9E9E9E">@Kuliner.Mataram </a></a>
 				</div>
 
 				<span class="topbar-child1">

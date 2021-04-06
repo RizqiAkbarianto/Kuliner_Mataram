@@ -55,7 +55,8 @@
  							<div class="col-sm-10">
  								<select name="akses_level" class="form-control">
  									<option value="Admin">Admin</option>
- 									<option value="Produk"<?php if($user->akses_level=="Produk"){ echo "selected";} ?>>Produk</option>
+ 									<option value="User">User</option>
+ 									<option value="Produsen">Produsen</option>
  								</select>
  							</div>
  						</div>

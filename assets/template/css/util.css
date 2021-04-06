@@ -3862,7 +3862,7 @@ EFFECT   EFFECT   EFFECT   EFFECT   EFFECT   EFFECT  EFFECT
 */
 .effect1 {
 	position: relative;
-	border-bottom: 1px solid #cccccc;
+	border-bottom: 1px solid #FFFFFF;
 }
 .effect1-line {
 	display: block;

@@ -19,19 +19,19 @@ class Simple_pelanggan
 		$check = $this->CI->user_model->userlogin($email,$password);
 		//jika ad data usernya, maka create session login
 		if($check){
-			$id_user  	 	= $check->id_user;
+			$id  	 		= $check->id_user;
 			$name     		= $check->nama;
-			$akses_level    = 'User';
+			$akses_level    = $check->akses_level;
 			$alamat			= $check->alamat;
 
 			// create session
-			$this->CI->session->set_userdata('id_user',$id_user);
-			$this->CI->session->set_userdata('nama',$name);
+			$this->CI->session->set_userdata('id',$id);
+			$this->CI->session->set_userdata('name',$name);
 			$this->CI->session->set_userdata('email',$email);
-			$this->CI->session->set_userdata('akses_level','User');
+			$this->CI->session->set_userdata('akses',$akses_level);
 			$this->CI->session->set_userdata('alamat',$alamat);
 			// redirect ke halaman admin yang telah diproteksi
-			redirect(base_url('dasbor'),'refresh');
+			redirect(base_url(),'refresh');
 		}
 		else{
 			// jika username dan pw kosong atau salah
@@ -54,14 +54,22 @@ class Simple_pelanggan
 	public function logout()
 	{
 		// membuang semua session yang telah di set pada login
-		$this->CI->session->unset_userdata('id_user');
-		$this->CI->session->unset_userdata('nama');
+		$this->CI->session->unset_userdata('id');
+		$this->CI->session->unset_userdata('name');
 		$this->CI->session->unset_userdata('email');
+		$this->CI->session->unset_userdata('akses');
 		// setalh session dibuang, maka redirect ke login
 		$this->CI->session->set_flashdata('sukses', 'Anda berhasil Logout');
-		redirect(base_url('masuk'),'refresh');
+		redirect(base_url(),'refresh');
 	}
 
+	public function cek_akses()
+	{
+		// memeriksa session sdh ada atau blm, jika blm arahkan ke halaman login
+		if($this->CI->session->userdata('akses') == "User"){
+					redirect(base_url(),'refresh');
+		}
+	}
 
 }
 

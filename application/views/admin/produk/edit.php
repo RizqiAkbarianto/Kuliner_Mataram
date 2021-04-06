@@ -51,42 +51,7 @@
 								</select>
 							</div>
 						</div>
-
-						<div class="form-group row">
-							<label  class="col-sm-2 control-form-label">Harga Produk</label>
-
-							<div class="col-sm-10">
-								<input type="number" name="harga" class="form-control"  placeholder="Harga Produk" value="<?php echo $produk->harga ?>" required> 
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label  class="col-sm-2 control-form-label">Stok Produk</label>
-
-							<div class="col-sm-10">
-								<input type="number" name="stok" class="form-control"  placeholder="Stok Produk" value="<?php echo $produk->stok ?>" required> 
-							</div>
-						</div>
-
-
-						<div class="form-group row">
-							<label  class="col-sm-2 control-form-label">Berat Produk</label>
-
-							<div class="col-sm-10">
-								<input type="text" name="berat" class="form-control"  placeholder="Berat Produk" value="<?php echo $produk->berat ?>" required> 
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label  class="col-sm-2 control-form-label">Ukuran Produk</label>
-
-							<div class="col-sm-10">
-								<input type="text" name="ukuran" class="form-control"  placeholder="Ukuran Produk" value="<?php echo $produk->ukuran ?>" required> 
-							</div>
-						</div>
-
-
-
+						
  						<div class="form-group row">
  							<label  class="col-sm-2 control-form-label">Instagram</label>
 

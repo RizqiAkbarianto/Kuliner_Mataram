@@ -8,6 +8,10 @@
  					<div class="card-body">
  						<p>
  							<a href="<?php echo base_url('admin/produk/tambah') ?>" class="btn btn-success btn-lg"><i class="fa fa-plus-square"></i> Tambah Baru</a>
+
+ 							<a href="<?php echo base_url('admin/produk/print') ?>" rel="noopener" target="_blank" class="btn btn-primary btn-lg"><i class="fa fa-plus-square"></i> Print Laporan</a>
+
+ 							
  						</p>
 
  						<?php 
@@ -26,7 +30,7 @@
  									<th>GAMBAR</th>
  									<th>NAMA</th>
  									<th>KATEGORI</th>
- 									<th>HARGA</th>
+ 									<th>INSTAGRAM</th>
  									<th>STATUS</th>
  									<th>ACTION</th>
  								</tr>
@@ -40,7 +44,7 @@
  										<td><img src="<?php echo base_url('assets/upload/image/thumbs/'.$produk->gambar) ?>" class="img img-responsive img-thumbnail" width="60"></td>
  										<td><?php echo $produk->nama_produk ?></td>
  										<td><?php echo $produk->nama_kategori ?></td>
- 										<td><?php echo number_format($produk->harga,'0',',','.') ?></td>
+ 										<td><?php echo $produk->instagram ?></td>
  										<td><?php echo $produk->status_produk ?></td>
  										<td align="center">
 

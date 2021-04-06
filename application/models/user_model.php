@@ -53,6 +53,16 @@ class User_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function read()
+	{
+		$this->db->select('*');
+		$this->db->from('users');
+		// $this->db->where('id_user', $id_user);
+		$this->db->order_by('id_user', 'desc');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 // tambah
 	public function tambah($data)
 	{

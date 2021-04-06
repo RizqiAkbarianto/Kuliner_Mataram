@@ -7,18 +7,12 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 ?>
 
 <!-- Footer -->
-<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
-	<div class="flex-w p-b-90">
-
-		<div class="w-size7 p-t-30 p-l-15 p-r-15 respon3">
-			
-		</div>
-
-		
+<footer class="bg5 p-t-45 p-b-43 p-l-45 p-r-45">
+	<div class="flex-w  p-b-90">
 
 		<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
 			<h4 class="s-text12 p-b-30">
-				Links
+				Menu
 			</h4>
 
 			<ul>
@@ -36,16 +30,18 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 
 				<li class="p-b-9">
 					<a href="<?= base_url('kontak')?>" class="s-text7">
-						Contact 
+						Kontak 
 					</a>
 				</li>
 			</ul>
 		</div>
 
-		<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-			<h4 class="s-text12 p-b-30">
+		<div class="w-size9 p-t-30 p-l-15 p-r-15 respon4">
+			<div class="w-size7">
+			<h4 class="s-text12 p-b-11">
 				Kategori Produk
 			</h4>
+			</div>
 
 			<ul>
 
@@ -62,6 +58,54 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 
 			</ul>
 		</div>
+		<?php if ($this->session->userdata('email')) { ?>
+			<div class="w-size9 p-t-30 p-l-15 p-r-15 respon3">
+
+				<h4 class="s-text12 p-b-30">
+					Akun
+				</h4>
+				<ul>
+					<li class="p-t-4">
+						<a href="<?php echo base_url('dashboard/profil') ?>" class="s-text13 active1">
+							Profil
+						</a>
+					</li>
+					<?php if ($this->session->userdata('email')) { ?>
+						<?php if ($this->session->userdata('akses') == "Produsen") { ?>
+							<li class="p-t-4">
+								<a href="<?php echo base_url('dashboard/produk') ?>" class="s-text13 active1">
+									Produk Anda
+								</a>
+							</li>
+						<?php }else{ ?>
+						<?php } ?>
+					<?php }else{ ?>
+					<?php } ?>
+
+					<li class="p-t-4">
+						<a href="<?php echo base_url('dashboard/tersimpan') ?>" class="s-text13 active1">
+							Produk Tersimpan
+						</a>
+					</li>
+
+					<li class="p-t-4">
+						<a href="<?php echo base_url('dashboard/pengaturan') ?>" class="s-text13 active1">
+							Pengaturan Akun
+						</a>
+					</li>
+
+					<li class="p-t-4">
+						<a href="<?php echo base_url('masuk/logout') ?>" class="s-text13 active1">
+							Logout
+						</a>
+					</li>
+				</ul>
+
+			</div>
+		<?php }else{ ?>
+		<?php } ?>
+
+
 		<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
 			<h4 class="s-text12 p-b-30">
 				KONTAK KAMI
@@ -72,11 +116,12 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 					<?= nl2br($site->alamat) ?>
 					<br><i class="fa fa-envelope"></i> <?= $site->email ?>
 					<br><i class="fa fa-phone"></i> <?= $site->telepon ?>
+					<br><a href="<?= $site->instagram ?>" class="fs-18 color1 p-r-20 s-text13 w-size27">  <i class="fa fa-instagram"> @Kuliner.Mataram</i></a>
 				</p>
 
 				<div class="flex-m p-t-30">
 					
-					<a href="<?= $site->instagram ?>" class="fs-18 color1 p-r-20 fa fa-instagram">  @Kuliner.Mataram</a>
+					
 
 				</div>
 			</div>
@@ -87,13 +132,13 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 		
 
 		<div class="t-center s-text8 p-t-20">
-			Copyright © 2020. | Website ini dibuat oleh <b> @Rizqi Akbarianto </b>  <i class="" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank"></a>
+			Copyright © 2020. | <b> @Rizqi Akbarianto </b>  <i class="" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank"></a>
 		</div>
 	</div>
 </footer>
 
 <script>
-  initSample();
+	initSample();
 </script>
 
 
@@ -135,10 +180,7 @@ $nav_produk_footer	= $this->konfigurasi_model->nav_produk();
 <script type="text/javascript" src="<?php echo base_url() ?>assets/template/vendor/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
 	$('.block2-btn-addcart').each(function(){
-		var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-		$(this).on('click', function(){
-			swal(nameProduct, "is added to cart !", "success");
-		});
+		
 	});
 
 	$('.block2-btn-addwishlist').each(function(){

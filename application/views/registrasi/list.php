@@ -105,18 +105,24 @@ $site = $this->konfigurasi_model->listing();
 				</div>
 
 
-				<div class="container-login100-form-btn">
+				<div class="container-login100-form-btn p-b-10">
 					<button class="login100-form-btn" type="submit">
 						Daftar
 					</button>
 
 				</div>
-				<br>
+				
 
-				<div class="container-login100-form-btn">
+				<div class="container-login100-form-btn p-b-10">
 					<button class="login100-form-btn" type="reset">
 						Reset
 					</button>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<a href="<?php echo base_url() ?>" class="login100-form-btn" >
+						Batal
+					</a>
 				</div>
 
 				</form <?php echo form_close(); ?>

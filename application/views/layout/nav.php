@@ -7,7 +7,7 @@ $nav_produk_mobile	= $this->konfigurasi_model->nav_produk();
 
 <div class="wrap_header">
 	<!-- Logo -->
-	<a href="index.html" class="logo">
+	<a href="<?= base_url()?>" class="logo">
 		<!-- Kυʅιɳҽɾ LσɱႦσƙ -->
 
 		<img src="<?php echo base_url('assets/upload/image/'.$site->logo) ?>" alt="<?= $site->namaweb ?> | <?= $site->tagline ?> ">
@@ -46,24 +46,48 @@ $nav_produk_mobile	= $this->konfigurasi_model->nav_produk();
 
 	<!-- Header Icon -->
 	<div class="header-icons">
-
 		<?php if ($this->session->userdata('email')) { ?>
+			<div class="wrap_menu">
+				<nav class="menu">
+					<ul class="main_menu">
+						<li>
+							<a href="<?php echo base_url('dashboard/profil') ?>"><?php echo $this->session->userdata('name'); ?></a>
+							<img src="<?php echo base_url() ?>assets/template/images//icons/icon-header-01.png" class="header-icon1" alt="ICON"> 
+							<ul class="sub_menu">
 
-			<a href="<?php echo base_url('dasbor') ?>" class="header-wrapicon1 dis-block">
-				<?php echo $this->session->userdata('nama'); ?> 
-			<img src="<?php echo base_url() ?>assets/template/images//icons/icon-header-01.png" class="header-icon1" alt="ICON"> 
-		</a>
+								<li>
+									<a href="<?php echo base_url('dashboard/profil') ?>" class="header-wrapicon1 dis-block">Profile</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('masuk/logout') ?>" class="header-wrapicon1 dis-block">Logout</a>
+								</li> 
+								<?php if ($this->session->userdata('akses') == "Produsen") { ?>
+								<?php }else{ ?>
+									<li>
+										<a href="<?php echo base_url('upgrade') ?>" class="header-wrapicon1 dis-block">Ubah ke akun bisnis</a>
+									</li>
+								<?php } ?>
+							</ul>
+						</li>
 
+					</ul>
+				</nav>
+			</div>
 		<?php }else{ ?>
-		<a href="<?php echo base_url('masuk') ?>" class="header-wrapicon1 dis-block">
-			<img src="<?php echo base_url() ?>assets/template/images//icons/icon-header-01.png" class="header-icon1" alt="ICON">
-		</a>
-
+			<a href="<?php echo base_url('masuk') ?>" class="header-wrapicon1 dis-block">Login 
+				<img src="<?php echo base_url() ?>assets/template/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+			</a> 
 		<?php } ?>
-
-		<!-- <span class="linedivide1"></span> -->
-
-		
+		<?php if ($this->session->userdata('email')) { ?>
+			<?php if ($this->session->userdata('akses') == "Produsen") { ?>
+				| &nbsp;&nbsp;&nbsp;
+				<a href="<?php echo base_url('produk/tambah') ?>" class="header-wrapicon1 dis-block">
+					<img src="<?php echo base_url() ?>assets/template/images/icons/tambah.png" class="header-icon1" alt="ICON"> 
+				</a>
+			<?php }else{ ?>
+			<?php } ?>
+		<?php }else{ ?>
+		<?php } ?>
 	</div>
 </div>
 </div>
@@ -118,7 +142,7 @@ $nav_produk_mobile	= $this->konfigurasi_model->nav_produk();
 							foreach ($keranjang_mobile as $keranjang_mobile) {
 								$id_produk_mobile = $keranjang_mobile['id'];
 							// ambil data produk
-							$produk_mobile = $this->produk_model->detail($id_produk_mobile);
+								$produk_mobile = $this->produk_model->detail($id_produk_mobile);
 							# code...
 
 								?>
@@ -139,100 +163,100 @@ $nav_produk_mobile	= $this->konfigurasi_model->nav_produk();
 									</div>
 								</li>
 
-								<?php } } ?>
-							</ul>
+							<?php } } ?>
+						</ul>
 
-							<div class="header-cart-total">
-								Total: <?php echo $total_belanja ?>
+						<div class="header-cart-total">
+							Total: <?php echo $total_belanja ?>
+						</div>
+
+						<div class="header-cart-buttons">
+							<div class="header-cart-wrapbtn">
+								<!-- Button -->
+								<a href="<?php echo base_url('belanja') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									View Cart
+								</a>
 							</div>
 
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="<?php echo base_url('belanja') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="<?php echo base_url('belanja/checkout') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
+							<div class="header-cart-wrapbtn">
+								<!-- Button -->
+								<a href="<?php echo base_url('belanja/checkout') ?>" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									Check Out
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</div>
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
 			</div>
 		</div>
+	</div>
 
-		<!-- Menu Mobile -->
-		<div class="wrap-side-menu" >
-			<nav class="side-menu">
-				<ul class="main-menu">
-					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-						<span class="topbar-child1">
-							<?= $site->alamat ?>
+	<!-- Menu Mobile -->
+	<div class="wrap-side-menu" >
+		<nav class="side-menu">
+			<ul class="main-menu">
+				<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+					<span class="topbar-child1">
+						<?= $site->alamat ?>
+					</span>
+				</li>
+
+				<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+					<div class="topbar-child2-mobile">
+						<span class="topbar-email">
+							<?= $site->email ?>
 						</span>
-					</li>
 
-					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-						<div class="topbar-child2-mobile">
-							<span class="topbar-email">
-								<?= $site->email ?>
-							</span>
+						<div class="topbar-language rs1-select2">
+							<select class="selection-1" name="time">
+								<option><?= $site->telepon ?></option>
 
-							<div class="topbar-language rs1-select2">
-								<select class="selection-1" name="time">
-									<option><?= $site->telepon ?></option>
-
-								</select>
-							</div>
+							</select>
 						</div>
-					</li>
+					</div>
+				</li>
 
-					<li class="item-topbar-mobile p-l-10">
-						<div class="topbar-social-mobile">
+				<li class="item-topbar-mobile p-l-10">
+					<div class="topbar-social-mobile">
 
-							<a href="<?= $site->instagram ?>" class="topbar-social-item fa fa-instagram">  @Kuliner.Mataram</a>
+						<a href="<?= $site->instagram ?>" class="topbar-social-item fa fa-instagram">  @Kuliner.Mataram</a>
 
-						</div>
-					</li>
+					</div>
+				</li>
 
-					<!-- Menu mobile beranda -->
-					<li class="item-menu-mobile">
-						<a href="<?= base_url() ?>">Beranda</a>
-					</li>
-					<!-- menu mobile prodik -->
-					<li class="item-menu-mobile">
-						<a href="<?= base_url('produk') ?>">Produk &amp; Belanja</a>
-						<ul class="sub-menu">
+				<!-- Menu mobile beranda -->
+				<li class="item-menu-mobile">
+					<a href="<?= base_url() ?>">Beranda</a>
+				</li>
+				<!-- menu mobile prodik -->
+				<li class="item-menu-mobile">
+					<a href="<?= base_url('produk') ?>">Produk &amp; Belanja</a>
+					<ul class="sub-menu">
 
-							<?php foreach ($nav_produk_mobile as $nav_produk_mobile) {
+						<?php foreach ($nav_produk_mobile as $nav_produk_mobile) {
 							# code...
-								?>
-								<li><a href="<?= base_url('produk/kategori/'.$nav_produk_mobile->slug_kategori) ?>"><?= $nav_produk_mobile->nama_kategori ?></a></li>
+							?>
+							<li><a href="<?= base_url('produk/kategori/'.$nav_produk_mobile->slug_kategori) ?>"><?= $nav_produk_mobile->nama_kategori ?></a></li>
 
-							<?php } ?>
+						<?php } ?>
 
-						</ul>
-						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
-					</li>
+					</ul>
+					<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+				</li>
 
 
 
-					<!-- emnu kontak mobile -->
-					<li class="item-menu-mobile">
-						<a href="<?= base_url('kontak') ?>">Contact</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+				<!-- emnu kontak mobile -->
+				<li class="item-menu-mobile">
+					<a href="<?= base_url('kontak') ?>">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>

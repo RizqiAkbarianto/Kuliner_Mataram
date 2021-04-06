@@ -127,6 +127,87 @@ class Produk_model extends CI_Model {
 		return $query->row();
 	}
 
+	// produk
+	public function produk2($id_user,$limit,$start)
+	{
+		$this->db->select('produk.*,
+							users.nama,
+							users.id_user,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
+							COUNT(gambar.id_gambar) AS total_gambar'
+						);
+		$this->db->from('produk');
+		// start join
+
+		$this->db->join('users', 'users.id_user = produk.id_user', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
+
+
+		// end join
+		$this->db->where('produk.id_user', $id_user);
+		$this->db->where('produk.status_produk', 'publish');
+
+		$this->db->group_by('produk.id_produk');
+		$this->db->order_by('id_produk', 'desc');
+
+		$this->db->limit($limit,$start);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	// untuk menampilkan total produk yang di upload user
+	public function total_produk2($id_user)
+	{
+		$this->db->select('COUNT(*) AS total');
+		$this->db->from('produk');
+		$this->db->where('id_user',$id_user);
+		$this->db->where('status_produk', 'Publish');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	// produk
+	public function produk3($id_user,$limit,$start)
+	{
+		$this->db->select('tersimpan.*,
+							users.nama,
+							users.id_user,
+							produk.slug_produk,
+							produk.instagram,
+							COUNT(gambar.id_gambar) AS total_gambar'
+						);
+		$this->db->from('tersimpan');
+		// start join
+
+		$this->db->join('users', 'users.id_user = tersimpan.id_user', 'left');
+		$this->db->join('produk', 'produk.id_produk = tersimpan.id_produk', 'left');
+		$this->db->join('gambar', 'gambar.id_produk = tersimpan.id_produk', 'left');
+
+
+		// end join
+		$this->db->where('tersimpan.id_user', $id_user);
+		$this->db->where('produk.status_produk', 'publish');
+
+		$this->db->group_by('tersimpan.id_produk');
+		$this->db->order_by('id_produk', 'desc');
+
+		$this->db->limit($limit,$start);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	// untuk menampilkan total produk yang di upload user
+	public function total_produk3($id_user)
+	{
+		$this->db->select('COUNT(*) AS total');
+		$this->db->from('tersimpan');
+		$this->db->where('id_user',$id_user);
+		// $this->db->where('produk.status_produk', 'Publish');
+		$query = $this->db->get();
+		return $query->row();
+	}
 
 	// kategori produk
 	public function kategori($id_kategori,$limit,$start)
@@ -284,6 +365,11 @@ class Produk_model extends CI_Model {
     public function review($data)
 	{
 		$this->db->insert('review', $data);
+	}
+
+	public function simpan($data)
+	{
+		$this->db->insert('tersimpan', $data);
 	}
 
 

@@ -100,9 +100,9 @@ $site = $this->konfigurasi_model->listing();
 				<br>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn" type="reset">
-						Reset
-					</button>
+					<a href="<?php echo base_url() ?>" class="login100-form-btn" >
+						Batal
+					</a>
 				</div>
 
 				</form <?php echo form_close(); ?>

@@ -16,51 +16,60 @@
 
 					<div class="item-slick2 p-l-15 p-r-15">
 						<!-- form untuk memproses belajaan -->
-						<?php 
-						echo form_open(base_url('belanja/add')); 
-						// elemen yang dibawa
-						echo form_hidden('id', $produk->id_produk);
-						echo form_hidden('qty',1 );
-						echo form_hidden('price', $produk->harga);
-						echo form_hidden('name', $produk->nama_produk);
-						// elemen redirect unntuk kembali kehalaman yang tadi di akses
-						echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
-						?>
+						
 						
 
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-img wrap-pic-w of-hidden pos-relative ">
 								<a href="<?php echo base_url('produk/detail/'.$produk->slug_produk) ?>" class="block3-img dis-block hov-img-zoom">
-								<img src="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>" alt="<?php echo $produk->nama_produk ?>">
+									<img src="<?php echo base_url('assets/upload/image/'.$produk->gambar) ?>" alt="<?php echo $produk->nama_produk ?>">
 
-								<div class="block2-overlay trans-0-4">
 
-									<div class="block2-btn-addcart w-size1 trans-0-4">
-										<!-- Button belanja-->
-										<button type="submit" value="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											Simpan
-										</button>
+									<div class="block2-overlay trans-0-4">
+
+										<?php 
+ // error upload
+ // Form Open
+										echo form_open_multipart(base_url('simpan/tambah'),' class="leave-comment"');
+
+										?>
+
+										
+										<input type="hidden" name="id_produk" class="hidden"value="<?php echo $produk->id_produk ?>" > 
+										
+										
+										<input type="hidden" name="nama_produk" class="hidden"  placeholder="Nama Produk" value="<?php echo $produk->nama_produk ?>" required> 
+										
+										
+										<input type="hidden" name="gambar" class="hidden"  placeholder="Nama Produk" value="<?php echo $produk->gambar ?>" required> 
+										
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button belanja-->
+											<button type="submit" value="submit" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+												Simpan
+											</button>
+										</div>
+										<?php echo form_close(); ?>
 									</div>
 								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="<?php echo base_url('produk/detail/'.$produk->slug_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
+										<b><?php echo $produk->nama_produk ?></b>
+
+									</a>
+
+									<span class="block2-txt p-r-5">
+										<?php echo $produk->instagram ?>
+									</span>
+								</div>
 							</div>
-
-							<div class="block2-txt p-t-20">
-								<a href="<?php echo base_url('produk/detail/'.$produk->slug_produk) ?>" class="block2-name dis-block s-text3 p-b-5">
-									<b><?php echo $produk->nama_produk ?></b>
-
-								</a>
-
-								<span class="block2-txt p-r-5">
-									<?php echo $produk->instagram ?>
-								</span>
-							</div>
+							<!-- closing form -->
 						</div>
-						<!-- closing form -->
-						<?= form_close(); ?>
-					</div>
-				<?php } ?>
+					<?php } ?>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section><br>
